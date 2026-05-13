@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Vehicle extends Asset {
+public class Vehicle extends Assets {
     private String makeModel;
     private int year;
     private int odometer;
@@ -44,29 +44,29 @@ public class Vehicle extends Asset {
     // MINUS reduce final value by 25% if over 100,000 miles
     // unless makeModel contains word Honda or Toyota
 
+    @Override
     public double getValue(){
-        double value;
+        double value = 0;
         double depreciatedValue = 0;
 
         int yearsBought = LocalDate.now().getYear() - this.year;
 
         if (yearsBought <= 3) {
             depreciatedValue = .03 * getOriginalCost();
-        } else if (yearsBought >= 4 && yearsBought <= 6) {
+        } else if (yearsBought <= 6) {
             depreciatedValue = .06 * getOriginalCost();
-        } else if (yearsBought >= 7 && yearsBought <= 10) {
+        } else if (yearsBought <= 10) {
             depreciatedValue = .08 * getOriginalCost();
         }
-        value =- depreciatedValue;
+        value -= depreciatedValue;
         if (yearsBought > 10) {
             value = 1000.00;
         }
-        if (!makeModel.equalsIgnoreCase("Honda")) {
-            if (!makeModel.equalsIgnoreCase("toyota")){
+        if (!makeModel.equalsIgnoreCase("Honda") && (!makeModel.equalsIgnoreCase("Toyota"))){
                 if (odometer > 100000){
                     depreciatedValue = .25 * value;
-                    value =- depreciatedValue;
-                }}}
+                    value -= depreciatedValue;
+                }}
         return value;
     }
 }

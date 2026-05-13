@@ -1,4 +1,4 @@
-public class House extends Asset{
+public class House extends Assets {
     private String address;
     private int condition;
     private int squareFoot;
@@ -48,18 +48,24 @@ public class House extends Asset{
     @Override
     public double getValue(){
         double value;
-        switch(condition) {
+        double lotValue = this.lotSize * .25;
+        switch(this.condition) {
             case 1:
-                value = this.squareFoot * 180.0 * getOriginalCost();
+                value = this.squareFoot * 180.0;
+                break;
             case 2:
-                value = this.squareFoot * 130 * getOriginalCost();
+                value = this.squareFoot * 130;
+                break;
             case 3:
-                value = this.squareFoot * 90 * getOriginalCost();
+                value = this.squareFoot * 90;
+                break;
             case 4:
-                value = this.squareFoot * 80 * getOriginalCost();
+                value = this.squareFoot * 80;
+                break;
             default:
                 value = 0;
                 System.out.println("You have no house");
-        } return value;
+                break;
+        } return value + lotValue;
     }
 }
