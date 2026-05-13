@@ -17,6 +17,9 @@ public class Main {
         myProperties.add(mainCar);
         myProperties.add(vintageRide);
 
+        Cash hoardingMoney = new Cash("Inherited $$", "1999-10-12",100000000);
+        myProperties.add(hoardingMoney);
+
         double totalAssets = 0 ;
 
 
@@ -36,8 +39,14 @@ public class Main {
                 Vehicle vehicle = (Vehicle) myProperties.get(i);
                 message = "Vehicle: " + vehicle.getYear() + " " + vehicle.getMakeModel() + " $" + vehicle.getValue();
                 System.out.println(message);
+            } else if (myProperties.get(i) instanceof Cash){
+                Cash cash = (Cash) myProperties.get(i);
+                message = String.format("Cash: $%.10s",cash.getValue());
+                System.out.println(message);;
             }
         }
+
+
 
 
 
