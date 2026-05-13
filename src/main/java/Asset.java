@@ -1,10 +1,10 @@
-public class Assets {
+public abstract class Asset {
 
     private String description;
     private String dateAcquired;
     private double originalCost;
 
-    public Assets(String description, String dateAcquired, double originalCost) {
+    public Asset(String description, String dateAcquired, double originalCost) {
         this.description = description;
         this.dateAcquired = dateAcquired;
         this.originalCost = originalCost;
@@ -38,7 +38,7 @@ public class Assets {
         this.originalCost = originalCost;
     }
 
-    public double getValue(){
-        return originalCost;
-    }
+    abstract public double getValue();
+
 }
+

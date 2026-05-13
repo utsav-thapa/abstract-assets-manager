@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<Assets> myProperties = new ArrayList<>();
+        ArrayList<Asset> myProperties = new ArrayList<>();
 
         House myHouse = new House("Thapa's Mansion","2025-10-14",10000000,"1800 Memory Ln",1,8000,25000);
         House farmHouse = new House("Utsav's Ranch","2025-01-01",500000,"1500 Ohio",1,10000,200000);
@@ -20,7 +20,7 @@ public class Main {
         double totalAssets = 0 ;
 
 
-        for(Assets a : myProperties){
+        for(Asset a : myProperties){
             totalAssets += a.getValue();
         }
         System.out.println("The total value of your assets is $" + totalAssets);

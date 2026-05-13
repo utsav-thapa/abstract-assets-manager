@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Vehicle extends Assets {
+public class Vehicle extends Asset {
     private String makeModel;
     private int year;
     private int odometer;

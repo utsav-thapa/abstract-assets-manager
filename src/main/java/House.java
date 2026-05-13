@@ -1,4 +1,4 @@
-public class House extends Assets {
+public class House extends Asset {
     private String address;
     private int condition;
     private int squareFoot;
